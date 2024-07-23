@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	...
+</head>
+
+<body>
+
+	<!--fragment per nav bar-->
+
+	<div th:fragment="navbar_home">
+		<nav class="navbar 	bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" style="color: white;" th:href="@{/home}">Home</a>
+			</div>
+		</nav>
+	</div>
+
+	<!--fragmetns per pizza-->
+
+	<div th:fragment="pizze">
+		<ul th:each="pizze : ${pizzeList}">
+			<a style="color: black;" th:href="@{/home/pizze/{pizzeId}(pizzeId =${pizze.id})}">
+				<li th:text="${pizze.name} + ' price: ' + ${pizze.price} +'€' "> </li>
+			</a>
+		</ul>
+	</div>
+	
+	<!--fragmetns per offerte-->
+	
+		<div th:fragment="offerte">
+			<ul th:each="offerte : ${offersList}">
+				<a style="color: black;" th:href="@{/pizza/offer/{id} (id =${offerte.id})}">	
+					<li th:text="${offerte}"> </li>
+				</a>
+			</ul>
+		</div>
+		
+		<!--fragmetns per ingredienti-->	
+		<div th:fragment="ingredienti">
+			<ul th:each="ingredienti : ${ingredientsList}">
+				<a style="color: black;" th:href="@{/pizza/ingredient/{id} (id =${ingredienti.id})}">
+					<li th:text="${ingredienti}"> </li>
+				</a>
+			</ul>
+		</div>
+</body>
+
+</html>
