@@ -1,5 +1,5 @@
 package it.pizzeria.configuration;
-/*
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,7 +28,8 @@ public class SecurityConfiguration {
 	                    .requestMatchers("/**").permitAll()
 	                    .and().formLogin()
 	                    .and().logout()
-	                    .and().exceptionHandling();
+	                    .and().exceptionHandling()
+	                    .and().csrf().disable();
 	    return http.build();
 	}
 	
@@ -52,4 +53,4 @@ public class SecurityConfiguration {
 		return authProvider;
 	}
 	
-}*/
+}

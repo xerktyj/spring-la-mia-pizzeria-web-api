@@ -1,5 +1,5 @@
 package it.pizzeria.model;
-/*
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,4 +44,4 @@ public class DatabaseUserDetails implements UserDetails {
 	
 	
 
-}*/
+}
