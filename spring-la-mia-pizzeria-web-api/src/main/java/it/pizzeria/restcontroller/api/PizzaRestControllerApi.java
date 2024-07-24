@@ -78,7 +78,10 @@ public class PizzaRestControllerApi {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Payload<Pizza>> updatePizza(@PathVariable Integer id,@Valid @RequestBody Pizza pizza) {
+		List<Pizza> list = pizzaService.findByName(pizza.getName());
 		try {
+			if (list.size() > 0)
+				throw new IllegalListSizeException("pizza già presente in lista");
 			Pizza updatePizza = pizzaService.update(id, pizza);
 			return ResponseEntity.ok(new Payload<Pizza>(updatePizza,null,HttpStatus.OK));
 		}catch(IllegalArgumentException e) {
